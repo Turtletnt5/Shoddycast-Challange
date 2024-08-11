@@ -3,9 +3,10 @@
 This is my submission for Challenge: beat Austin's python code that took 8 days to run 1 billion sample dice rolls 
 
 You will find to consetent varibles bellow one for the total rolls and one for number of threads used.
-I am testing this on an intel i7-8700k which has a max thread count of 12.
+I am testing this on an intel i9-11980hk which has a max thread count of 16.
 So for max preformance lookup your processors max thread count and ajust acordinlly 
 
+The time it took was 3004743 miliseconds
 
 By Turtletnt5
 
@@ -16,7 +17,7 @@ By Turtletnt5
 //Number of dice rolls total Edit this
 const int TotalRolls = 1000000000;
 //total threads to make expect one extra for non even dividsion
-const int TotalThreads = 12;
+const int TotalThreads = 16;
 
 
 
