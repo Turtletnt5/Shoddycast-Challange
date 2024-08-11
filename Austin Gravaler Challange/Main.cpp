@@ -15,7 +15,7 @@ By Turtletnt5
 */
 
 //Number of dice rolls total Edit this
-const int TotalRolls = 1000000000;
+const long long int TotalRolls = 1000000000;
 //total threads to make expect one extra for non even dividsion
 const int TotalThreads = 16;
 
@@ -40,7 +40,7 @@ using namespace std;
 int HigherstProcs = 0;
 
 //rolls completed
-int rollsComplete = 0;
+long long int rollsComplete = 0;
 
 //mutex used for multithreading
 shared_mutex m;
@@ -49,13 +49,13 @@ shared_mutex m;
 vector<thread> threads;
 
 
-void RollSession(int totalRolls) {
+void RollSession(long long int totalRolls) {
 
 	//multithreading safty
 	unique_lock<shared_mutex> Ulock(m);
 	Ulock.unlock();
 
-	for (int rolls = 0; rolls < totalRolls; rolls++) {
+	for (long long int rolls = 0; rolls < totalRolls; rolls++) {
 		// number of times rand hits 1
 		int totalProcs = 0;
 
@@ -105,7 +105,7 @@ void main() {
 	Timing timer("Total Time Elapsed in microseconds: ");
 
 	//print total number of soll sessions
-	printf("Number of roll sessions: %d \n\n", TotalRolls);
+	printf("Number of roll sessions: %lld \n\n", TotalRolls);
 	
 	//make threads for rolls
 	for (int i = 0; i < TotalThreads; i++) {
@@ -119,10 +119,10 @@ void main() {
 	while (rollsComplete < TotalRolls) {
 
 		//print total finshed rolls
-		printf("Total rolls completed: %d \n", rollsComplete);
+		printf("Total rolls completed: %lld \n", rollsComplete);
 	}
 	
-	printf("Total rolls completed: %d \n", rollsComplete);
+	printf("Total rolls completed: %lld \n", rollsComplete);
 	printf("Highest total Procs: %d \n", HigherstProcs);
 
 	//stops timer
